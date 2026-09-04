@@ -1,8 +1,8 @@
 # Font drop-in manifest
 
-Each style uses the typeface of its reference site. Three of the four references
+Each style uses the typeface of its reference site. Three of the five references
 use **commercially licensed** faces that cannot be redistributed in this repo —
-you're supplying those.
+you're supplying those. Delcap and Breathe ESG need nothing.
 
 Drop the `.woff2` files into `public/fonts/` using **exactly** the filenames
 below. `app/fonts.css` already declares every `@font-face`, and each style's
@@ -64,12 +64,26 @@ Reference: <https://column.com> · Licence: Swiss Typefaces (Suisse Int'l)
 
 ---
 
+## Style 05 · Breathe ESG → `/breathe`
+Reference: <https://www.breatheesg.com> · Licence: **none needed — already exact**
+
+| Role | Family | Status |
+|---|---|---|
+| Display + UI | Geist (300 / 400 / 500) | ✅ self-hosted via `@fontsource/geist-sans` |
+| Micro-labels | Geist Mono (300 / 400) | ✅ self-hosted via `@fontsource/geist-mono` |
+
+Nothing to supply. The reference serves both from Google Fonts; they're
+open-licensed, so this style is typographically identical to it.
+
+---
+
 ## Summary — what's still needed
 
 - **500 Global** — 4 files (Tobias Light, Apercu Pro ×2, Apercu Mono Pro)
 - **Cantor8** — 2 files (PP Neue Montreal Book + Medium)
 - **Column** — 4 files (Suisse Int'l ×3, Suisse Int'l Mono)
 - **Delcap** — nothing, already exact
+- **Breathe ESG** — nothing, already exact
 
 Total: **10 `.woff2` files**. Prefer `woff2`; if you only have `otf`/`ttf`,
 convert first (e.g. `fonttools`) or add the extra `src` entries in

@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo";
 import Reveal from "@/components/Reveal";
 import { nav, hero, gap, whatYouGet, builtFor, proof, closing, footer } from "@/lib/content";
 import "./style.css";
@@ -25,7 +26,9 @@ export default function ColumnPage() {
       {/* ---------------- nav ---------------- */}
       <header className="cl__nav">
         <div className="cl__wrap cl__navInner">
-          <a className="cl__brand" href="#top">{nav.brand}</a>
+          <a className="cl__brand" href="#top" aria-label={nav.brand}>
+            <Logo height={18} />
+          </a>
           <nav className="cl__navLinks">
             {nav.links.map((l) => (
               <a key={l.label} className="cl__navLink" href={l.href}>{l.label}</a>
@@ -208,7 +211,10 @@ export default function ColumnPage() {
       <footer className="cl__footer">
         <div className="cl__wrap">
           <div className="cl__footerTop">
-            <p className="cl__footerTag">{footer.tagline}</p>
+            <div>
+              <div className="cl__footerMark"><Logo height={26} variant="mark" /></div>
+              <p className="cl__footerTag">{footer.tagline}</p>
+            </div>
             {footer.columns.map((col) => (
               <div className="cl__footerCol" key={col.heading}>
                 <span className="cl__label">{col.heading}</span>

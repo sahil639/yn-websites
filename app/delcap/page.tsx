@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo";
 import Reveal from "@/components/Reveal";
 import { nav, hero, gap, whatYouGet, builtFor, proof, closing, footer } from "@/lib/content";
 import "./style.css";
@@ -18,7 +19,9 @@ export default function DelcapPage() {
       {/* ---------------- nav ---------------- */}
       <header className="dc__nav">
         <div className="dc__wrap dc__navInner">
-          <a className="dc__brand" href="#top">{nav.brand}</a>
+          <a className="dc__brand" href="#top" aria-label={nav.brand}>
+            <Logo height={20} />
+          </a>
           <nav className="dc__navLinks">
             {nav.links.map((l) => (
               <a key={l.label} className="dc__navLink" href={l.href}>{l.label}</a>
@@ -200,7 +203,10 @@ export default function DelcapPage() {
       <footer className="dc__footer">
         <div className="dc__wrap">
           <div className="dc__footerTop">
-            <p className="dc__footerTag">{footer.tagline}</p>
+            <div>
+              <div className="dc__footerMark"><Logo height={26} variant="mark" /></div>
+              <p className="dc__footerTag">{footer.tagline}</p>
+            </div>
             {footer.columns.map((col) => (
               <div className="dc__footerCol" key={col.heading}>
                 <p className="dc__footerHead">{col.heading}</p>

@@ -218,3 +218,17 @@
 @media (max-width: 640px) {
   .dc__navCtas .dc__btn:not(.dc__btn--primary) { display: none; }
 }
+
+/* ---------- logo ----------
+   The brand anchor now wraps the SVG mark, which inherits colour via
+   currentColor — so the logo picks up this style's own ink. */
+.dc__brand {
+  display: inline-flex; align-items: center;
+  color: var(--ink); line-height: 0;
+  transition: opacity 0.2s ease;
+}
+.dc__brand:hover { opacity: 0.62; }
+.dc__brand svg { display: block; height: auto; }
+
+.dc__footerMark { color: var(--ink); margin-bottom: 16px; line-height: 0; }
+.dc__footerMark svg { display: block; }

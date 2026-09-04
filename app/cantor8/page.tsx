@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo";
 import Reveal from "@/components/Reveal";
 import { nav, hero, gap, whatYouGet, builtFor, proof, closing, footer } from "@/lib/content";
 import "./style.css";
@@ -23,7 +24,9 @@ export default function Cantor8Page() {
       {/* ---------------- nav ---------------- */}
       <header className="c8__nav">
         <div className="c8__wrap c8__navInner">
-          <a className="c8__brand" href="#top">{nav.brand}</a>
+          <a className="c8__brand" href="#top" aria-label={nav.brand}>
+            <Logo height={19} />
+          </a>
           <nav className="c8__navLinks">
             {nav.links.map((l) => (
               <a key={l.label} className="c8__navLink" href={l.href}>{l.label}</a>
@@ -204,7 +207,10 @@ export default function Cantor8Page() {
       <footer className="c8__footer">
         <div className="c8__wrap">
           <div className="c8__footerTop">
-            <p className="c8__footerTag">{footer.tagline}</p>
+            <div>
+              <div className="c8__footerMark"><Logo height={26} variant="mark" /></div>
+              <p className="c8__footerTag">{footer.tagline}</p>
+            </div>
             {footer.columns.map((col) => (
               <div className="c8__footerCol" key={col.heading}>
                 <span className="c8__label c8__label--muted">{col.heading}</span>

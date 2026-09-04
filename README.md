@@ -1,6 +1,6 @@
 # Yield Network — Liquidity Strategy, four visual styles
 
-The Liquidity Strategy page rebuilt in **four visual languages**, each drawn from a
+The Liquidity Strategy page rebuilt in **five visual languages**, each drawn from a
 different reference site. Layout, section order, information architecture and copy
 are identical across all four — only the visual system changes.
 
@@ -15,7 +15,8 @@ Base page (source of truth for content and structure):
 | `/five-hundred` | 500 Global | [500.co](https://500.co) | Editorial VC — serif headlines, wide-tracked mono eyebrows, hairline grids, lots of air |
 | `/delcap` | Delcap | [delcap.com](https://www.delcap.com) | Calm and institutional — soft 12px cards, pill badges, pale-blue tint on off-white |
 | `/cantor8` | Cantor8 | [cantor8.io](https://www.cantor8.io) | Modern product/infra — tight 4px radii, technical rule-lines, blue used sparingly |
-| `/column` | Column | [column.com](https://column.com) | Banking-grade restraint — ledger rows, hairline rules, the quietest motion of the four |
+| `/column` | Column | [column.com](https://column.com) | Banking-grade restraint — ledger rows, hairline rules, the quietest motion of the five |
+| `/breathe` | Breathe ESG | [breatheesg.com](https://www.breatheesg.com) | Light AI-SaaS — thin 300-weight headings, product-panel mocks, a desaturated pastel mosaic |
 
 A persistent switcher is pinned to the bottom of every page for moving between variants.
 
@@ -35,17 +36,19 @@ npm run build
 ```
 lib/content.ts        Single source of truth — every heading, paragraph and CTA.
                       All four pages import from here; none of them fork the copy.
-lib/styles.ts         The four variants (shared by the index and the switcher).
+lib/styles.ts         The five variants (shared by the index and the switcher).
 components/Reveal.tsx Scroll-entry primitive. One IntersectionObserver per element,
                       unobserved after firing, no-ops under prefers-reduced-motion.
 components/StyleSwitcher.tsx  Persistent cross-variant nav.
+components/Logo.tsx   Yield Network mark. Fills with currentColor so it inherits
+                      each style's ink; `variant="mark"` drops the wordmark.
 app/<style>/page.tsx  Section markup for one variant.
 app/<style>/style.css That variant's design system, namespaced by a prefix
-                      (.fh / .dc / .c8 / .cl) so styles can never leak between routes.
+                      (.fh / .dc / .c8 / .cl / .br) so styles can never leak between routes.
 app/fonts.css         @font-face declarations for the licensed reference typefaces.
 ```
 
-### Section order (identical in all four)
+### Section order (identical in all five)
 
 1. Nav
 2. Hero — headline, subhead, two CTAs
@@ -56,7 +59,7 @@ app/fonts.css         @font-face declarations for the licensed reference typefac
 7. Start With a Conversation
 8. Footer
 
-### Visual constraints (applied to all four)
+### Visual constraints (applied to all five)
 
 - Light only. White / off-white grounds, black-and-white typography and surfaces.
 - Accent colour is used sparingly — buttons, tags, small highlights — and never
@@ -68,12 +71,13 @@ app/fonts.css         @font-face declarations for the licensed reference typefac
 
 ### Typography
 
-Each style uses its reference site's typeface. Delcap is exact today (Open Sauce One
-+ Inter are open-licensed and self-hosted). The other three reference commercial
-faces — see **[FONTS.md](FONTS.md)** for the drop-in manifest and what's outstanding.
+Each style uses its reference site's typeface. **Delcap** and **Breathe ESG** are
+exact today (Open Sauce One + Inter, and Geist + Geist Mono, are all open-licensed
+and self-hosted), as is Cantor8's Fragment Mono. The remaining commercial faces —
+see **[FONTS.md](FONTS.md)** for the drop-in manifest and what's outstanding.
 
 ## Notes
 
-- Static export — all five routes prerender, ~106 kB first-load JS.
+- Static export — all six routes prerender, ~106 kB first-load JS.
 - Partner names in the track-record grid are placeholders; the base page renders
   logo images there.

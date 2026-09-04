@@ -18,6 +18,11 @@ const META: Record<string, { ref: string; fonts: string; note: string }> = {
     fonts: "PP Neue Montreal · Fragment Mono",
     note: "Modern product/infra. Tight 4px radii, technical rule-lines, blue used sparingly.",
   },
+  breathe: {
+    ref: "breatheesg.com",
+    fonts: "Geist \u00b7 Geist Mono",
+    note: "Light AI-SaaS. Thin 300-weight headings, product-panel mocks, a desaturated pastel mosaic.",
+  },
   column: {
     ref: "column.com",
     fonts: "Suisse Int'l · Suisse Int'l Mono",

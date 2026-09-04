@@ -1,3 +1,4 @@
+import Logo from "@/components/Logo";
 import Reveal from "@/components/Reveal";
 import { nav, hero, gap, whatYouGet, builtFor, proof, closing, footer } from "@/lib/content";
 import "./style.css";
@@ -16,7 +17,9 @@ export default function FiveHundredPage() {
       {/* ---------------- nav ---------------- */}
       <header className="fh__nav">
         <div className="fh__wrap fh__navInner">
-          <a className="fh__brand" href="#top">{nav.brand}</a>
+          <a className="fh__brand" href="#top" aria-label={nav.brand}>
+            <Logo height={21} />
+          </a>
           <nav className="fh__navLinks">
             {nav.links.map((l) => (
               <a key={l.label} className="fh__navLink" href={l.href}>{l.label}</a>
@@ -187,7 +190,10 @@ export default function FiveHundredPage() {
       <footer className="fh__footer">
         <div className="fh__wrap">
           <div className="fh__footerTop">
-            <p className="fh__footerTag">{footer.tagline}</p>
+            <div>
+              <div className="fh__footerMark"><Logo height={26} variant="mark" /></div>
+              <p className="fh__footerTag">{footer.tagline}</p>
+            </div>
             {footer.columns.map((col) => (
               <div className="fh__footerCol" key={col.heading}>
                 <p className="fh__eyebrow">{col.heading}</p>

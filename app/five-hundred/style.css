@@ -223,3 +223,17 @@
 @media (max-width: 640px) {
   .fh__navCtas .fh__btn:not(.fh__btn--primary) { display: none; }
 }
+
+/* ---------- logo ----------
+   The brand anchor now wraps the SVG mark, which inherits colour via
+   currentColor — so the logo picks up this style's own ink. */
+.fh__brand {
+  display: inline-flex; align-items: center;
+  color: var(--ink); line-height: 0;
+  transition: opacity 0.2s ease;
+}
+.fh__brand:hover { opacity: 0.62; }
+.fh__brand svg { display: block; height: auto; }
+
+.fh__footerMark { color: var(--ink); margin-bottom: 16px; line-height: 0; }
+.fh__footerMark svg { display: block; }
