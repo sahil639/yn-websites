@@ -1,0 +1,225 @@
+/* =========================================================================
+   STYLE 01 · 500 Global  (reference: https://500.co)
+   Type: Tobias Light (serif display) + Apercu Pro (sans) + Apercu Mono Pro
+   Feel: editorial VC — serif headlines, wide-tracked mono eyebrows, air.
+   ========================================================================= */
+
+.fh {
+  --ink: #0a0a0a;
+  --muted: #6b6b6b;
+  --line: #e2e2e2;
+  --paper: #ffffff;
+  --sand: #f6f4f0;
+  --accent: #d4442f;
+
+  --serif: "Tobias", "Instrument Serif", "Times New Roman", serif;
+  --sans: "Apercu Pro", "Inter Variable", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "Apercu Mono Pro", ui-monospace, "SF Mono", Menlo, monospace;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  padding-bottom: 96px;
+}
+
+.fh__wrap { max-width: 1360px; margin: 0 auto; padding: 0 28px; }
+@media (min-width: 900px) { .fh__wrap { padding: 0 56px; } }
+
+/* eyebrow / label */
+.fh__eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.fh h1, .fh h2, .fh h3 { font-family: var(--serif); font-weight: 300; }
+
+/* ---------- nav ---------- */
+.fh__nav {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.fh__navInner {
+  display: flex; align-items: center; gap: 32px;
+  height: 72px;
+}
+.fh__brand {
+  font-family: var(--serif); font-size: 21px; letter-spacing: -0.01em;
+  text-decoration: none; margin-right: auto;
+}
+.fh__navLinks { display: none; gap: 30px; }
+@media (min-width: 900px) { .fh__navLinks { display: flex; } }
+.fh__navLink {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; text-decoration: none; color: var(--ink);
+  position: relative; padding: 4px 0;
+}
+.fh__navLink::after {
+  content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 100%;
+  background: currentColor; transform: scaleX(0); transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fh__navLink:hover::after { transform: scaleX(1); transform-origin: left; }
+.fh__navCtas { display: flex; align-items: center; gap: 10px; }
+
+/* ---------- buttons ---------- */
+.fh__btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
+  text-transform: uppercase; text-decoration: none;
+  padding: 13px 22px; border: 1px solid var(--ink); border-radius: 999px;
+  background: transparent; color: var(--ink); cursor: pointer;
+  transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
+}
+.fh__btn:hover { background: var(--ink); color: var(--paper); }
+.fh__btn--primary { background: var(--ink); color: var(--paper); }
+.fh__btn--primary:hover { background: var(--accent); border-color: var(--accent); color: var(--paper); }
+.fh__btn--sm { padding: 10px 18px; font-size: 10px; }
+
+.fh__btn .fh__arrow { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+.fh__btn:hover .fh__arrow { transform: translateX(4px); }
+
+/* ---------- hero ---------- */
+.fh__hero { padding: 96px 0 88px; }
+@media (min-width: 900px) { .fh__hero { padding: 140px 0 120px; } }
+
+.fh__heroRule { height: 1px; background: var(--line); margin-bottom: 34px; }
+
+.fh__h1 {
+  font-size: clamp(42px, 7.2vw, 92px);
+  line-height: 1.04;
+  letter-spacing: -0.022em;
+  max-width: 16ch;
+}
+.fh__h1 em { font-style: italic; color: var(--accent); }
+
+.fh__heroFoot {
+  display: grid; gap: 34px; margin-top: 52px;
+  padding-top: 34px; border-top: 1px solid var(--line);
+}
+@media (min-width: 900px) {
+  .fh__heroFoot { grid-template-columns: 1fr 470px; align-items: start; gap: 64px; }
+}
+.fh__lede { font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 46ch; }
+.fh__ctaRow { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* ---------- generic section ---------- */
+.fh__section { padding: 84px 0; border-top: 1px solid var(--line); }
+@media (min-width: 900px) { .fh__section { padding: 118px 0; } }
+
+.fh__sectionHead { display: grid; gap: 12px; margin-bottom: 48px; }
+@media (min-width: 900px) {
+  .fh__sectionHead { grid-template-columns: 200px 1fr; gap: 56px; align-items: baseline; }
+}
+.fh__h2 {
+  font-size: clamp(32px, 4.4vw, 56px);
+  line-height: 1.08; letter-spacing: -0.02em; max-width: 20ch;
+}
+
+/* ---------- gap section ---------- */
+.fh__gap { display: grid; gap: 44px; align-items: center; }
+@media (min-width: 900px) { .fh__gap { grid-template-columns: 1fr 1fr; gap: 88px; } }
+.fh__gapBody { display: grid; gap: 20px; margin-top: 26px; font-size: 17px; line-height: 1.6; color: var(--muted); }
+.fh__plate {
+  aspect-ratio: 4 / 3; background: var(--sand);
+  border: 1px solid var(--line); position: relative; overflow: hidden;
+}
+.fh__plateGrid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(10,10,10,0.055) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(10,10,10,0.055) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+.fh__plateMark {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--serif); font-size: clamp(60px, 11vw, 128px);
+  letter-spacing: -0.03em; color: var(--ink); opacity: 0.09;
+}
+
+/* ---------- what you get ---------- */
+.fh__grid2 { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 760px) { .fh__grid2 { grid-template-columns: 1fr 1fr; } }
+
+.fh__card {
+  background: var(--paper); padding: 36px 32px 40px;
+  display: grid; gap: 14px; align-content: start;
+  transition: background 0.4s ease;
+}
+.fh__card:hover { background: var(--sand); }
+.fh__cardTop { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.fh__cardTitle { font-family: var(--serif); font-size: 27px; letter-spacing: -0.015em; line-height: 1.15; }
+.fh__cardBody { font-size: 15.5px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- built for ---------- */
+.fh__grid3 { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 860px) { .fh__grid3 { grid-template-columns: repeat(3, 1fr); } }
+.fh__bfCard { background: var(--paper); padding: 32px; display: grid; gap: 16px; align-content: start; transition: background 0.4s ease; }
+.fh__bfCard:hover { background: var(--sand); }
+.fh__bfPlate {
+  height: 170px; background: var(--sand); border: 1px solid var(--line);
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--muted);
+  transition: background 0.4s ease;
+}
+.fh__bfCard:hover .fh__bfPlate { background: #efece6; }
+.fh__bfTitle { font-family: var(--serif); font-size: 25px; letter-spacing: -0.015em; }
+.fh__bfBody { font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- proof ---------- */
+.fh__proof { display: grid; gap: 48px; align-items: center; }
+@media (min-width: 900px) { .fh__proof { grid-template-columns: 1.35fr 1fr; gap: 80px; } }
+.fh__logos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+@media (min-width: 620px) { .fh__logos { grid-template-columns: repeat(4, 1fr); } }
+.fh__logo {
+  background: var(--paper); aspect-ratio: 16 / 9; display: grid; place-items: center;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); transition: color 0.3s ease, background 0.3s ease;
+}
+.fh__logo:hover { color: var(--ink); background: var(--sand); }
+.fh__proofStat { font-family: var(--serif); font-size: clamp(27px, 3.3vw, 40px); line-height: 1.22; letter-spacing: -0.02em; }
+
+/* ---------- closing ---------- */
+.fh__closing { background: var(--sand); border: 1px solid var(--line); padding: 56px 32px; }
+@media (min-width: 900px) { .fh__closing { padding: 96px 80px; } }
+.fh__closingInner { max-width: 620px; display: grid; gap: 22px; }
+.fh__closingBody { font-size: 17px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- footer ---------- */
+.fh__footer { border-top: 1px solid var(--line); padding: 64px 0 0; }
+.fh__footerTop { display: grid; gap: 40px; padding-bottom: 56px; }
+@media (min-width: 860px) { .fh__footerTop { grid-template-columns: 1.6fr 1fr 1fr; gap: 56px; } }
+.fh__footerTag { font-family: var(--serif); font-size: 29px; letter-spacing: -0.02em; max-width: 12ch; }
+.fh__footerCol { display: grid; gap: 12px; align-content: start; }
+.fh__footerLink { font-size: 15px; color: var(--muted); text-decoration: none; transition: color 0.25s ease; }
+.fh__footerLink:hover { color: var(--ink); }
+.fh__footerBar {
+  border-top: 1px solid var(--line); padding: 22px 0 0;
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+}
+
+/* ---------- motion (500: gentle, editorial) ---------- */
+.fh .reveal { transform: translateY(22px); transition-duration: 0.85s; }
+
+/* Reveal wrappers become the grid items — make their contents fill the cell so
+   the 1px grid background never shows through as a block. */
+.fh__grid2 > .reveal,
+.fh__grid3 > .reveal,
+.fh__logos > .reveal { display: flex; }
+.fh__grid2 > .reveal > *,
+.fh__grid3 > .reveal > *,
+.fh__logos > .reveal > * { flex: 1; }
+.fh__card, .fh__bfCard { height: 100%; }
+
+/* Small-screen nav: keep the brand on one line and drop the secondary CTA. */
+.fh__brand { white-space: nowrap; }
+@media (max-width: 640px) {
+  .fh__navCtas .fh__btn:not(.fh__btn--primary) { display: none; }
+}

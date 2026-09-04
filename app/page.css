@@ -1,0 +1,31 @@
+.idx {
+  min-height: 100vh;
+  background: #fff;
+  color: #0a0a0a;
+  font-family: "Inter Variable", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  padding: 72px 20px 140px;
+}
+@media (min-width: 900px) { .idx { padding: 112px 48px 160px; } }
+.idx__wrap { max-width: 1120px; margin: 0 auto; }
+.idx__label {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #7a7a7a;
+}
+.idx__h1 { font-size: clamp(32px, 4.6vw, 52px); line-height: 1.1; letter-spacing: -0.03em; margin: 16px 0 14px; font-weight: 500; }
+.idx__sub { font-size: 17px; line-height: 1.6; color: #6b6b6b; max-width: 62ch; }
+.idx__grid { display: grid; gap: 16px; margin-top: 48px; }
+@media (min-width: 780px) { .idx__grid { grid-template-columns: 1fr 1fr; } }
+.idx__card {
+  display: grid; gap: 10px; align-content: start;
+  border: 1px solid #e4e4e6; border-radius: 10px; padding: 26px;
+  text-decoration: none; color: inherit; background: #fff;
+  transition: transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.idx__card:hover { transform: translateY(-3px); border-color: #d2d2d6; box-shadow: 0 12px 32px rgba(0,0,0,0.07); }
+.idx__cardTop { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.idx__cardTitle { font-size: 22px; letter-spacing: -0.025em; font-weight: 500; }
+.idx__cardMeta { font-size: 14px; line-height: 1.55; color: #6b6b6b; }
+.idx__fonts {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  font-size: 11px; color: #8a8a8a; letter-spacing: 0.02em; margin-top: 4px;
+}

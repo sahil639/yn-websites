@@ -1,0 +1,213 @@
+/* =========================================================================
+   STYLE 04 · Column  (reference: https://column.com)
+   Type: Suisse Int'l (+ Suisse Int'l Mono for numerics/labels)
+   Palette from the reference: #011821 ink, #354A50 slate-teal, #F6F6F8 off.
+   Feel: banking-grade minimalism — 8px radii, hairline rules, wide margins,
+   near-invisible motion. The most restrained of the four.
+   ========================================================================= */
+
+.cl {
+  --ink: #011821;
+  --slate: #354a50;
+  --muted: #5b6b70;
+  --line: rgba(1, 24, 33, 0.09);
+  --line-soft: rgba(1, 24, 33, 0.05);
+  --paper: #ffffff;
+  --off: #f6f6f8;
+  --accent: #354a50;
+
+  --sans: "SuisseIntl", "Inter Variable", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
+  --mono: "SuisseIntlMono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  background: var(--paper);
+  color: var(--slate);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+  padding-bottom: 96px;
+}
+
+.cl__wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+@media (min-width: 900px) { .cl__wrap { padding: 0 48px; } }
+
+.cl h1, .cl h2, .cl h3 { color: var(--ink); font-weight: 500; letter-spacing: -0.022em; }
+
+.cl__label {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--muted);
+}
+
+/* ---------- nav ---------- */
+.cl__nav {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--line-soft);
+}
+.cl__navInner { display: flex; align-items: center; gap: 36px; height: 72px; }
+.cl__brand {
+  font-size: 18px; font-weight: 600; letter-spacing: -0.03em;
+  color: var(--ink); text-decoration: none; margin-right: auto;
+}
+.cl__navLinks { display: none; gap: 28px; }
+@media (min-width: 900px) { .cl__navLinks { display: flex; } }
+.cl__navLink {
+  font-size: 14px; font-weight: 500; color: var(--muted);
+  text-decoration: none; transition: color 0.2s ease;
+}
+.cl__navLink:hover { color: var(--ink); }
+.cl__navCtas { display: flex; align-items: center; gap: 8px; }
+
+/* ---------- buttons ---------- */
+.cl__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; letter-spacing: -0.01em;
+  padding: 11px 18px; border-radius: 8px; text-decoration: none;
+  border: 1px solid var(--line); background: var(--paper); color: var(--ink);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.cl__btn:hover { background: var(--off); border-color: rgba(1, 24, 33, 0.16); }
+.cl__btn--primary { background: var(--ink); border-color: var(--ink); color: #fff; }
+.cl__btn--primary:hover { background: var(--slate); border-color: var(--slate); color: #fff; }
+.cl__btn--sm { padding: 8px 14px; font-size: 13px; }
+.cl__arrow { transition: transform 0.22s ease; opacity: 0.75; }
+.cl__btn:hover .cl__arrow { transform: translateX(2px); }
+
+/* ---------- hero ---------- */
+.cl__hero { padding: 84px 0 64px; }
+@media (min-width: 900px) { .cl__hero { padding: 132px 0 96px; } }
+
+.cl__h1 {
+  font-size: clamp(38px, 5.2vw, 62px); line-height: 1.08;
+  letter-spacing: -0.028em; max-width: 17ch; margin-top: 18px;
+}
+.cl__h1 span { color: var(--muted); }
+
+.cl__heroFoot { display: grid; gap: 26px; margin-top: 34px; max-width: 620px; }
+.cl__lede { font-size: 18px; line-height: 1.55; color: var(--muted); }
+.cl__ctaRow { display: flex; flex-wrap: wrap; gap: 10px; }
+
+/* ledger-style figure block */
+.cl__ledger {
+  margin-top: 64px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--off); overflow: hidden;
+}
+.cl__ledgerRow { display: grid; grid-template-columns: repeat(2, 1fr); }
+@media (min-width: 760px) { .cl__ledgerRow { grid-template-columns: repeat(4, 1fr); } }
+.cl__ledgerCell {
+  padding: 22px 24px; border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);
+  display: grid; gap: 8px;
+}
+.cl__ledgerK { font-family: var(--mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.cl__ledgerV { font-size: 22px; color: var(--ink); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+
+/* ---------- sections ---------- */
+.cl__section { padding: 72px 0; border-top: 1px solid var(--line-soft); }
+@media (min-width: 900px) { .cl__section { padding: 112px 0; } }
+
+.cl__h2 { font-size: clamp(28px, 3.4vw, 42px); line-height: 1.15; max-width: 19ch; }
+.cl__sectionHead { display: grid; gap: 14px; margin-bottom: 44px; max-width: 680px; }
+
+/* ---------- gap ---------- */
+.cl__split { display: grid; gap: 40px; align-items: start; }
+@media (min-width: 960px) { .cl__split { grid-template-columns: 0.85fr 1fr; gap: 80px; } }
+.cl__body { display: grid; gap: 18px; font-size: 16.5px; line-height: 1.65; }
+.cl__figure {
+  border: 1px solid var(--line); border-radius: 8px; background: var(--off);
+  aspect-ratio: 3 / 2; position: relative; overflow: hidden; padding: 24px;
+  display: grid; align-content: space-between;
+}
+.cl__figureBars { display: grid; gap: 10px; }
+.cl__figureBar { height: 8px; border-radius: 4px; background: rgba(53, 74, 80, 0.14); }
+.cl__figureBar--fill { background: var(--slate); }
+
+/* ---------- what you get: ledger rows ---------- */
+.cl__list { border-top: 1px solid var(--line); }
+.cl__item {
+  display: grid; gap: 10px; padding: 28px 0; border-bottom: 1px solid var(--line-soft);
+  transition: background 0.35s ease;
+}
+@media (min-width: 900px) {
+  .cl__item { grid-template-columns: 280px 1fr 120px; gap: 48px; align-items: start; padding: 32px 0; }
+}
+.cl__item:hover { background: var(--off); }
+.cl__itemTitle { font-size: 21px; letter-spacing: -0.024em; }
+.cl__itemBody { font-size: 15.5px; line-height: 1.65; color: var(--muted); }
+.cl__itemMeta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 5px; }
+@media (min-width: 900px) { .cl__itemMeta { text-align: right; } }
+
+/* ---------- built for ---------- */
+.cl__cards3 { display: grid; gap: 16px; }
+@media (min-width: 900px) { .cl__cards3 { grid-template-columns: repeat(3, 1fr); } }
+.cl__card {
+  border: 1px solid var(--line); border-radius: 8px; background: var(--paper);
+  padding: 24px; display: grid; gap: 14px; align-content: start;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+.cl__card:hover { background: var(--off); border-color: rgba(1, 24, 33, 0.14); }
+.cl__cardMedia {
+  height: 140px; border-radius: 8px; background: var(--off);
+  border: 1px solid var(--line-soft); display: grid; place-items: center;
+  transition: background 0.3s ease;
+}
+.cl__card:hover .cl__cardMedia { background: #eeeef2; }
+.cl__cardGlyph { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.cl__cardTitle { font-size: 19px; letter-spacing: -0.022em; }
+.cl__cardBody { font-size: 15px; line-height: 1.6; color: var(--muted); }
+
+/* ---------- proof ---------- */
+.cl__proof { display: grid; gap: 44px; align-items: center; }
+@media (min-width: 960px) { .cl__proof { grid-template-columns: 1.25fr 1fr; gap: 72px; } }
+.cl__logos {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+}
+@media (min-width: 620px) { .cl__logos { grid-template-columns: repeat(4, 1fr); } }
+.cl__logo {
+  aspect-ratio: 16 / 9; display: grid; place-items: center;
+  border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);
+  font-size: 13px; font-weight: 500; color: var(--muted);
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.cl__logo:hover { background: var(--off); color: var(--ink); }
+.cl__stat { font-size: clamp(24px, 2.9vw, 34px); line-height: 1.28; color: var(--ink); letter-spacing: -0.024em; }
+
+/* ---------- closing ---------- */
+.cl__closing { border: 1px solid var(--line); border-radius: 8px; background: var(--off); padding: 44px 26px; }
+@media (min-width: 900px) { .cl__closing { padding: 76px 64px; } }
+.cl__closingInner { max-width: 580px; display: grid; gap: 18px; }
+
+/* ---------- footer ---------- */
+.cl__footer { border-top: 1px solid var(--line-soft); padding: 56px 0 0; }
+.cl__footerTop { display: grid; gap: 36px; padding-bottom: 44px; }
+@media (min-width: 860px) { .cl__footerTop { grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; } }
+.cl__footerTag { font-size: 24px; letter-spacing: -0.026em; max-width: 12ch; }
+.cl__footerCol { display: grid; gap: 10px; align-content: start; }
+.cl__footerLink { font-size: 15px; color: var(--muted); text-decoration: none; transition: color 0.2s ease; }
+.cl__footerLink:hover { color: var(--ink); }
+.cl__footerBar {
+  border-top: 1px solid var(--line-soft); padding: 20px 0;
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+}
+.cl__footerBar a { color: var(--muted); text-decoration: none; }
+
+/* ---------- motion (Column: the most restrained — a whisper of a fade) ---- */
+.cl .reveal {
+  transform: translateY(8px);
+  transition-duration: 0.55s;
+  transition-timing-function: cubic-bezier(0.33, 1, 0.68, 1);
+}
+
+/* Reveal wrappers become the grid items — keep card heights equal. */
+.cl__cards3 > .reveal { display: flex; }
+.cl__cards3 > .reveal > * { flex: 1; }
+.cl__card { height: 100%; }
+.cl__list > .reveal:last-child .cl__item { border-bottom: none; }
+
+/* Small-screen nav: keep the brand on one line and drop the secondary CTA. */
+.cl__brand { white-space: nowrap; }
+@media (max-width: 640px) {
+  .cl__navCtas .cl__btn:not(.cl__btn--primary) { display: none; }
+}

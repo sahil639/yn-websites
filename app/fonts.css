@@ -1,0 +1,85 @@
+/* ==========================================================================
+   REFERENCE TYPEFACES
+   --------------------------------------------------------------------------
+   Each block below points at the *exact* licensed file expected in
+   /public/fonts. Until those files are dropped in, `src` falls through to the
+   open substitute listed in the stack and nothing renders broken.
+
+   See FONTS.md for the full drop-in manifest.
+   ========================================================================== */
+
+/* --- Style 01 · 500 Global -------------------------------------------- */
+@font-face {
+  font-family: "Tobias";
+  src: url("/fonts/Tobias-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Apercu Pro";
+  src: url("/fonts/apercu-regular-pro.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Apercu Pro";
+  src: url("/fonts/apercu-medium-pro.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Apercu Mono Pro";
+  src: url("/fonts/apercu-mono-regular-pro.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Style 03 · Cantor8 ------------------------------------------------ */
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "PP Neue Montreal";
+  src: url("/fonts/PPNeueMontreal-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Style 04 · Column ------------------------------------------------- */
+@font-face {
+  font-family: "SuisseIntl";
+  src: url("/fonts/SuisseIntl-Book.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SuisseIntl";
+  src: url("/fonts/SuisseIntl-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SuisseIntl";
+  src: url("/fonts/SuisseIntl-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "SuisseIntlMono";
+  src: url("/fonts/SuisseIntlMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

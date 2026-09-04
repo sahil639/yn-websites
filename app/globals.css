@@ -1,0 +1,129 @@
+/* Self-hosted free faces.
+   - Open Sauce One + Inter  → the ACTUAL Delcap typefaces (exact match).
+   - Fragment Mono           → the ACTUAL Cantor8 mono (exact match).
+   - Instrument Serif        → interim stand-in for Tobias on the 500 style.
+   Licensed faces are declared in fonts.css and win the cascade once dropped in. */
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource/open-sauce-one/400.css";
+@import "@fontsource/open-sauce-one/500.css";
+@import "@fontsource/open-sauce-one/600.css";
+@import "@fontsource/fragment-mono/400.css";
+@import "@fontsource/instrument-serif/400.css";
+@import "@fontsource/instrument-serif/400-italic.css";
+
+@import "./fonts.css";
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #0a0a0a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, svg { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3, h4, p, figure { margin: 0; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* --- Shared scroll-reveal primitive -------------------------------------
+   Each style overrides the transform/duration/easing to match its reference. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+.reveal.is-visible { will-change: auto; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Cross-variant style switcher ---------------------------------------- */
+.yn-switcher {
+  position: fixed;
+  z-index: 100;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  border-radius: 999px;
+  background: rgba(12, 12, 12, 0.9);
+  backdrop-filter: saturate(140%) blur(14px);
+  -webkit-backdrop-filter: saturate(140%) blur(14px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  max-width: calc(100vw - 24px);
+}
+
+.yn-switcher__home {
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.yn-switcher__home:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+
+.yn-switcher__list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.yn-switcher__list::-webkit-scrollbar { display: none; }
+
+.yn-switcher__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 13px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+.yn-switcher__item:hover { color: #fff; background: rgba(255, 255, 255, 0.08); }
+.yn-switcher__item.is-active { color: #0a0a0a; background: #fff; }
+
+.yn-switcher__index { opacity: 0.5; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 640px) {
+  .yn-switcher { font-size: 10px; bottom: 12px; }
+  .yn-switcher__item { padding: 7px 10px; }
+  .yn-switcher__item span:last-child { display: none; }
+  .yn-switcher__item.is-active span:last-child { display: inline; }
+}
