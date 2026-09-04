@@ -5,14 +5,16 @@
    ========================================================================= */
 
 .fh {
-  --ink: #0a0a0a;
-  --muted: #6b6b6b;
-  --line: #e2e2e2;
-  --paper: #ffffff;
-  --sand: #f6f4f0;
-  --accent: #d4442f;
+  --ink: #0f0f0f;
+  --muted: #5f5f57;
+  --line: #dcdcc9;
+  --paper: #f5f5eb;
+  --sand: #eceadb;
+  --accent: #0f0f0f;
 
-  --serif: "Tobias", "Instrument Serif", "Times New Roman", serif;
+  /* Tobias only — no substitute serif. Until Tobias-Light.woff2 lands in
+     /public/fonts this falls through to the platform serif. */
+  --serif: "Tobias", "Times New Roman", serif;
   --sans: "Apercu Pro", "Inter Variable", "Inter", -apple-system, "Helvetica Neue", Arial, sans-serif;
   --mono: "Apercu Mono Pro", ui-monospace, "SF Mono", Menlo, monospace;
 
@@ -74,6 +76,7 @@
   font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em;
   text-transform: uppercase; text-decoration: none;
   padding: 13px 22px; border: 1px solid var(--ink); border-radius: 999px;
+  white-space: nowrap;
   background: transparent; color: var(--ink); cursor: pointer;
   transition: background 0.35s ease, color 0.35s ease, border-color 0.35s ease;
 }
@@ -85,32 +88,74 @@
 .fh__btn .fh__arrow { transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
 .fh__btn:hover .fh__arrow { transform: translateX(4px); }
 
-/* ---------- hero ---------- */
-.fh__hero { padding: 96px 0 88px; }
-@media (min-width: 900px) { .fh__hero { padding: 140px 0 120px; } }
+/* ---------- hero ----------
+   Full-bleed gradient band (cream → warm yellow → sky) with the radial
+   sunburst asset anchored right, exactly as in the design reference. */
+.fh__hero { position: relative; }
 
-.fh__heroRule { height: 1px; background: var(--line); margin-bottom: 34px; }
-
-.fh__h1 {
-  font-size: clamp(42px, 7.2vw, 92px);
-  line-height: 1.04;
-  letter-spacing: -0.022em;
-  max-width: 16ch;
+.fh__heroPanel {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    180deg,
+    #f5f5eb 0%,
+    #f6efcf 16%,
+    #f0e3a4 34%,
+    #dfe3c0 50%,
+    #b9d4ec 72%,
+    #a3c8e8 100%
+  );
 }
-.fh__h1 em { font-style: italic; color: var(--accent); }
 
-.fh__heroFoot {
-  display: grid; gap: 34px; margin-top: 52px;
-  padding-top: 34px; border-top: 1px solid var(--line);
+.fh__heroArt {
+  position: absolute;
+  top: 50%;
+  right: -6%;
+  transform: translateY(-50%);
+  width: min(780px, 64%);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+.fh__heroArt img { width: 100%; height: auto; display: block; }
+
+/* The art drifts in and settles — the one piece of motion in this hero. */
+@media (prefers-reduced-motion: no-preference) {
+  .fh__heroArt {
+    animation: fh-art-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+@keyframes fh-art-in {
+  from { opacity: 0; transform: translateY(-50%) scale(1.06); }
+  to   { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+.fh__heroInner {
+  position: relative;
+  z-index: 1;
+  /* block-only, so .fh__wrap keeps supplying the horizontal gutter */
+  padding-top: 84px;
+  padding-bottom: 96px;
 }
 @media (min-width: 900px) {
-  .fh__heroFoot { grid-template-columns: 1fr 470px; align-items: start; gap: 64px; }
+  .fh__heroInner { padding-top: 132px; padding-bottom: 148px; }
 }
-.fh__lede { font-size: 19px; line-height: 1.55; color: var(--muted); max-width: 46ch; }
+
+.fh__h1 {
+  font-size: clamp(40px, 6.6vw, 88px);
+  line-height: 1.06;
+  letter-spacing: -0.022em;
+  max-width: 15ch;
+  color: var(--ink);
+}
+
+.fh__heroFoot { display: grid; gap: 30px; margin-top: 44px; max-width: 620px; }
+.fh__lede { font-size: 18px; line-height: 1.5; color: #2f2f2a; max-width: 44ch; }
 .fh__ctaRow { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* ---------- generic section ---------- */
 .fh__section { padding: 84px 0; border-top: 1px solid var(--line); }
+.fh__section:first-of-type { border-top: 0; }
 @media (min-width: 900px) { .fh__section { padding: 118px 0; } }
 
 .fh__sectionHead { display: grid; gap: 12px; margin-bottom: 48px; }
@@ -187,7 +232,10 @@
 .fh__proofStat { font-family: var(--serif); font-size: clamp(27px, 3.3vw, 40px); line-height: 1.22; letter-spacing: -0.02em; }
 
 /* ---------- closing ---------- */
-.fh__closing { background: var(--sand); border: 1px solid var(--line); padding: 56px 32px; }
+.fh__closing {
+  border: 1px solid var(--line); padding: 56px 32px; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #f7f1d4 0%, #f5f5eb 46%, #dbe7f0 100%);
+}
 @media (min-width: 900px) { .fh__closing { padding: 96px 80px; } }
 .fh__closingInner { max-width: 620px; display: grid; gap: 22px; }
 .fh__closingBody { font-size: 17px; line-height: 1.6; color: var(--muted); }

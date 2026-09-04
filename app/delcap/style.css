@@ -103,10 +103,16 @@
 
 /* soft panel used under the hero */
 .dc__panel {
+  position: relative; overflow: hidden;
   margin-top: 56px; border: 1px solid var(--line); border-radius: 12px;
   background: linear-gradient(180deg, var(--tint) 0%, var(--off) 100%);
   padding: 28px; display: grid; gap: 20px;
 }
+.dc__panelBurst {
+  position: absolute; top: 50%; right: -8%; transform: translateY(-50%);
+  width: 420px; height: 420px; color: var(--navy); opacity: 0.22; z-index: 0;
+}
+.dc__panelItem { position: relative; z-index: 1; }
 @media (min-width: 760px) { .dc__panel { grid-template-columns: repeat(3, 1fr); padding: 36px 40px; gap: 40px; } }
 .dc__panelItem { display: grid; gap: 6px; }
 .dc__panelNum { font-family: var(--display); font-size: 30px; color: var(--navy); letter-spacing: -0.05em; }

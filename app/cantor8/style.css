@@ -144,6 +144,10 @@
   position: absolute; left: 8%; right: 8%; bottom: 22%; height: 1px; background: var(--line);
 }
 .c8__figurePath { position: absolute; inset: 0; }
+.c8__figureBurst {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 116%; height: 116%; color: var(--blue); opacity: 0.16;
+}
 .c8__figureTag {
   position: absolute; left: 18px; top: 18px;
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em;

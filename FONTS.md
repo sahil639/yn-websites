@@ -21,7 +21,11 @@ Reference: <https://500.co> · Licence: Colophon Foundry (Tobias), Monotype (Ape
 | Body / UI | Apercu Pro Medium | `public/fonts/apercu-medium-pro.woff2` |
 | Labels, eyebrows, buttons | Apercu Mono Pro Regular | `public/fonts/apercu-mono-regular-pro.woff2` |
 
-*Interim:* Instrument Serif stands in for Tobias; Inter for Apercu; system mono for Apercu Mono.
+**Tobias is now the only serif declared for this style** — no substitute is
+listed. Until `Tobias-Light.woff2` lands, headings fall through to the platform
+serif (Times), which is *not* the intended look. This style is the one most
+blocked on its font files. (Inter still stands in for Apercu; system mono for
+Apercu Mono.)
 
 ---
 

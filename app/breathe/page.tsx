@@ -257,6 +257,7 @@ export default function BreathePage() {
           <div className="br__wrap">
             <Reveal>
               <div className="br__closing">
+                <div className="br__closingBurst yn-burst" aria-hidden="true" />
                 <div className="br__closingInner">
                   <span className="br__label">Get In Touch</span>
                   <h2 className="br__h2">{closing.heading}</h2>

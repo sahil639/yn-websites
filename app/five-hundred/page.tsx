@@ -37,36 +37,37 @@ export default function FiveHundredPage() {
       <main id="top">
         {/* ---------------- hero ---------------- */}
         <section className="fh__hero">
-          <div className="fh__wrap">
-            <Reveal>
-              <div className="fh__heroRule" />
-              <p className="fh__eyebrow">Liquidity Strategy</p>
-            </Reveal>
-            <Reveal delay={90}>
-              <h1 className="fh__h1">
-                {hero.headingLead}
-                <br />
-                {hero.headingRest}
-                <em>{hero.headingAccent}</em>
-              </h1>
-            </Reveal>
-            <div className="fh__heroFoot">
-              <Reveal delay={180}>
-                <p className="fh__lede">{hero.subhead}</p>
+          <div className="fh__heroPanel">
+            <div className="fh__heroArt" aria-hidden="true">
+              <img src="/sunburst.svg" alt="" width={630} height={652} />
+            </div>
+            <div className="fh__wrap fh__heroInner">
+              <Reveal delay={60}>
+                <h1 className="fh__h1">
+                  {hero.headingLead}
+                  <br />
+                  {hero.headingRest}
+                  {hero.headingAccent}
+                </h1>
               </Reveal>
-              <Reveal delay={260}>
-                <div className="fh__ctaRow">
-                  {hero.ctas.map((c) => (
-                    <a
-                      key={c.label}
-                      className={`fh__btn ${c.primary ? "fh__btn--primary" : ""}`}
-                      href={c.href}
-                    >
-                      {c.label} <Arrow />
-                    </a>
-                  ))}
-                </div>
-              </Reveal>
+              <div className="fh__heroFoot">
+                <Reveal delay={160}>
+                  <p className="fh__lede">{hero.subhead}</p>
+                </Reveal>
+                <Reveal delay={240}>
+                  <div className="fh__ctaRow">
+                    {hero.ctas.map((c) => (
+                      <a
+                        key={c.label}
+                        className={`fh__btn ${c.primary ? "fh__btn--primary" : ""}`}
+                        href={c.href}
+                      >
+                        {c.label} <Arrow />
+                      </a>
+                    ))}
+                  </div>
+                </Reveal>
+              </div>
             </div>
           </div>
         </section>

@@ -64,6 +64,7 @@ export default function DelcapPage() {
 
             <Reveal delay={180}>
               <div className="dc__panel">
+                <div className="dc__panelBurst yn-burst" aria-hidden="true" />
                 <div className="dc__panelItem">
                   <span className="dc__panelNum">±$1bn</span>
                   <span className="dc__panelLabel">Active liquidity sourced</span>

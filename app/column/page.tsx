@@ -189,6 +189,7 @@ export default function ColumnPage() {
           <div className="cl__wrap">
             <Reveal>
               <div className="cl__closing">
+                <div className="cl__closingBurst yn-burst" aria-hidden="true" />
                 <div className="cl__closingInner">
                   <span className="cl__label">Get In Touch</span>
                   <h2 className="cl__h2">{closing.heading}</h2>

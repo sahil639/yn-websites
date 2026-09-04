@@ -97,6 +97,7 @@ export default function Cantor8Page() {
               <Reveal delay={110}>
                 <div className="c8__figure">
                   <div className="c8__figureGrid" />
+                  <div className="c8__figureBurst yn-burst" aria-hidden="true" />
                   <span className="c8__figureTag">Treasury → TVL</span>
                   <svg className="c8__figurePath" viewBox="0 0 400 300" fill="none" preserveAspectRatio="none" aria-hidden="true">
                     <path d="M40 250 C 140 250, 150 120, 200 120 S 280 60, 360 50" stroke="#044ab3" strokeWidth="1.5" fill="none" />

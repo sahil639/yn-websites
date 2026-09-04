@@ -1,15 +1,12 @@
 /* Self-hosted free faces.
    - Open Sauce One + Inter  → the ACTUAL Delcap typefaces (exact match).
    - Fragment Mono           → the ACTUAL Cantor8 mono (exact match).
-   - Instrument Serif        → interim stand-in for Tobias on the 500 style.
    Licensed faces are declared in fonts.css and win the cascade once dropped in. */
 @import "@fontsource-variable/inter/index.css";
 @import "@fontsource/open-sauce-one/400.css";
 @import "@fontsource/open-sauce-one/500.css";
 @import "@fontsource/open-sauce-one/600.css";
 @import "@fontsource/fragment-mono/400.css";
-@import "@fontsource/instrument-serif/400.css";
-@import "@fontsource/instrument-serif/400-italic.css";
 
 /* Geist + Geist Mono → the ACTUAL Breathe ESG typefaces (exact match). */
 @import "@fontsource/geist-sans/300.css";
@@ -28,7 +25,7 @@ html { -webkit-text-size-adjust: 100%; }
 
 body {
   margin: 0;
-  background: #fff;
+  background: #f5f5eb;
   color: #0a0a0a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -133,4 +130,16 @@ button { font: inherit; color: inherit; }
   .yn-switcher__item { padding: 7px 10px; }
   .yn-switcher__item span:last-child { display: none; }
   .yn-switcher__item.is-active span:last-child { display: inline; }
+}
+
+/* --- Shared sunburst asset -------------------------------------------------
+   Masked rather than <img> so each style paints it in its own ink via
+   `color`. The source strokes carry 0.5 alpha, so the mask keeps that
+   softness. Sized/positioned by the style that uses it. */
+.yn-burst {
+  background-color: currentColor;
+  -webkit-mask: url("/sunburst.svg") center / contain no-repeat;
+  mask: url("/sunburst.svg") center / contain no-repeat;
+  pointer-events: none;
+  user-select: none;
 }

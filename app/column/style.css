@@ -175,9 +175,16 @@
 .cl__stat { font-size: clamp(24px, 2.9vw, 34px); line-height: 1.28; color: var(--ink); letter-spacing: -0.024em; }
 
 /* ---------- closing ---------- */
-.cl__closing { border: 1px solid var(--line); border-radius: 8px; background: var(--off); padding: 44px 26px; }
+.cl__closing {
+  position: relative; overflow: hidden;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--off); padding: 44px 26px;
+}
+.cl__closingBurst {
+  position: absolute; top: 50%; right: -10%; transform: translateY(-50%);
+  width: 520px; height: 520px; color: var(--slate); opacity: 0.14;
+}
 @media (min-width: 900px) { .cl__closing { padding: 76px 64px; } }
-.cl__closingInner { max-width: 580px; display: grid; gap: 18px; }
+.cl__closingInner { position: relative; z-index: 1; max-width: 580px; display: grid; gap: 18px; }
 
 /* ---------- footer ---------- */
 .cl__footer { border-top: 1px solid var(--line-soft); padding: 56px 0 0; }

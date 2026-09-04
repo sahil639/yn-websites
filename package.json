@@ -13,7 +13,6 @@
     "@fontsource/fragment-mono": "^5.3.0",
     "@fontsource/geist-mono": "^5.3.0",
     "@fontsource/geist-sans": "^5.3.0",
-    "@fontsource/instrument-serif": "^5.3.0",
     "@fontsource/open-sauce-one": "^5.3.0",
     "next": "15.1.6",
     "react": "19.0.0",
