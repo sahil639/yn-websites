@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import StyleSwitcher from "@/components/StyleSwitcher";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body>
         {children}
-        <StyleSwitcher />
       </body>
     </html>
   );
